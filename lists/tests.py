@@ -33,7 +33,7 @@ class HomePageTest(TestCase):
         request = HttpRequest()
         request.method = 'POST'
         request.POST['item_text'] = 'A new list item'
-        
+
         response = home_page(request)
 
         self.assertEqual(response.status_code, 302)
@@ -50,7 +50,7 @@ class HomePageTest(TestCase):
 
         request = HttpRequest()
         response = home_page(request)
-        
+
         self.assertIn('itemey 1', response.content.decode())
         self.assertIn('itemey 2', response.content.decode())
 
