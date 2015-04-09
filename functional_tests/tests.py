@@ -59,7 +59,7 @@ class NewVisitorTest(LiveServerTestCase):
         ## We use a new browser session to make sure that no information
         ## of Edith's is coming through from cookies etc
         self.browser.quit()
-        self.browser = webbrowser.Firefox()
+        self.browser = webdriver.Firefox()
 
         # Francis visits the home page. There is no sign of Edith's
         # list
@@ -75,7 +75,7 @@ class NewVisitorTest(LiveServerTestCase):
         inputbox.send_keys(Keys.ENTER)
         
         # Francis gets his own unique URL
-        francis_list_url - self.browser.current_url
+        francis_list_url = self.browser.current_url
         self.assertRegex(francis_list_url, '/lists/.+')
         self.assertNotEqual(francis_list_url, edith_list_url)
         
